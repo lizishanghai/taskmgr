@@ -1,16 +1,17 @@
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared/index';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
-import { AppComponent } from './core/containers/app/app.component';
+import { AppComponent } from './core/containers/app';
+import { CoreModule } from './core/index';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule,
-    // SharedModule
+    BrowserModule.withServerTransition({ appId: 'taskmgr' }),
+    TransferHttpCacheModule,
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
