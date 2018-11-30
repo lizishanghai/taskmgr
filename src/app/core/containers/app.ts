@@ -9,17 +9,18 @@ import { Component } from '@angular/core';
           (navClicked)="sidenav.close()"></app-sidebar>
         </mat-sidenav>
 
-        <div>
+        <div class="site" fxLayout="column">
+        <header>
           <app-header
             (toggle)="sidenav.toggle()">
           </app-header>
-          <main>
-            main
-          </main>
-          <footer>
-            footer
-            </footer>
-        </div>
+        </header>
+        <main fxFlex="1" fxLayout="column" fxLayoutAlign="center">
+          <router-outlet></router-outlet>
+        </main>
+        <footer>
+        </footer>
+      </div>
     </mat-sidenav-container>
     `,
     styles: [`
